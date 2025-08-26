@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/* ─── COLOR TOKENS ───────────────────────────── */
+@layer base {
+  :root {
+    /* light-mode pastels */
+    --bcolor1: #0e2148;
+    --bcolor2: #1a2754;
+    --bcolor3: #272d60;
+    --bcolor4: #35336c;
+    --bcolor5: #433878;
+
+    --font-color: #ffffff;
+    --text-glow: 0 0 6px rgba(173, 182, 255, 0.5), 
+             0 0 12px rgba(173, 182, 255, 0.3);
+    --accent-color: #FFE3A9;
+    --accent-color2: #4e148c;
+    --nav-background: rgba(78, 20, 140, 0.2)
+;
+  }
+
+  
+  html, body {
+
+    color: var(--font-color); 
+    
+  }
+
+  body {
+    @apply min-h-screen;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-image: linear-gradient(to left bottom, #0e2148, #1a2754, #272d60, #35336c, #433878);
+  }
+}
+
+
+
+@layer utilities {
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes grow {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+
+  .animate-grow {
+    animation: grow 1.5s ease-out forwards;
+    transform-origin: left;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .delay-1 { animation-delay: 0.3s; }
+  .delay-2 { animation-delay: 0.6s; }
+  .delay-3 { animation-delay: 0.9s; }
+  .delay-4 { animation-delay: 1.6s; }
+
+  .text-glow {
+    text-shadow: var(--text-glow);
+    color: #ffffff;
+  }
+
+    .title-glow {
+    text-shadow: var(--text-glow);
+    color: var(--accent-color);
+  }
+
+  .card-hover {
+    @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+  }
+
+  .accent {
+    color: var(--accent-color);
+  }
+
+  .accent-2 {
+    @apply transition-colors duration-300;
+    color: var(--accent-color2);
+  }
+
+
+
+  .nav-bg {
+    background: var(--nav-background);
+  }
+
+  .button-class {
+    @apply px-10 py-5 rounded-full font-medium transition-all duration-300 hover:scale-105 active:scale-95;
+    background: var(--accent-color);
+    box-shadow: none;
+    color: var(--bcolor1);
+  }
+
+    .nav-button-class-sm {
+    @apply px-5 py-2 rounded-full font-light transition-all duration-300 hover:scale-105 active:scale-95;
+    background: var(--nav-background)/70;
+    box-shadow: none;
+  }
+      .nav-button-class-sm-selected {
+    @apply px-5 py-2 rounded-full font-light transition-all duration-300 hover:scale-105 active:scale-95;
+    box-shadow: none;
+    color: var(--accent-color);
+  }
+
+  .nav-button-class-sm:hover {
+    color: var(--accent-color);
+  }
+
+  .nav-hover-accent:hover {
+    color: var(--accent-color);
+    @apply transition-colors duration-300;
+    text-shadow: var(--text-glow);
+  }
+
+    .button-class:hover {
+    @apply px-10 py-5 rounded-full font-medium transition-all duration-300 hover:scale-105 active:scale-95;
+    background: var(--accent-color);
+    box-shadow: none;
+    color: var(--bcolor1);
+  }
+
+  .parent {
+    background-color: rgba(113, 97, 239, 0.8); /* pastel accent with 30% opacity */
+  }
+}
